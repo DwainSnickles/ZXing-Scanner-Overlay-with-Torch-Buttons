@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TechTracker.View.VisitPageMain">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Technician Tracker Software           " />
+                
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        
+        <StackLayout>
+
+            <!--<Entry x:Name = "Email" Placeholder = "Email" Text="{Binding Email}"-->
+
+            <Label Text="" FontSize="2" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Label Text="  Scan QR Code To Start Login (Note You Must Be On Location!)" FontSize="11" HorizontalOptions="Start" TextColor="Black"/>
+
+            <Label Text="" FontSize="2" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" x:Name="btnOverRideScan" FontSize="12" TextColor="Red" HeightRequest="65"
+                Text="OverRide QR Scan" HorizontalOptions="FillAndExpand" Clicked="btnOverRideQR_Clicked"/>
+
+
+                <Image x:Name="QRScanVerified" Source="RedXSmall.png" Grid.Column="1" />
+
+                <Button Text="Scan QR Label To Check In." FontSize="12"
+                x:Name="btnScanQR" Grid.Column="2" 
+                Clicked="btnScanQR_Clicked"/>
+
+            </Grid>
+
+            <Label Text="" FontSize="2" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="155" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0"
+                FontSize="12"
+                x:Name="lbloverRideReason"
+                TextColor="Red"
+                Text="Reason for QR scan overide?"
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                LineBreakMode="NoWrap" />
+
+                    <Entry x:Name="ReasonForOveride" TextChanged="OverRide_TextChanged" 
+               FontSize="15" Grid.Column="1" 
+               Placeholder="{Binding MyText,Mode=TwoWay}"/>
+                </Grid>
+
+            </StackLayout>
+
+            <Label Text="" FontSize="2" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                FontAttributes="Bold"
+                FontSize="12"
+                Text="Check In Time:"
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Start"
+                LineBreakMode="WordWrap"/>
+
+                <Label Grid.Column="1"
+                FontSize="12"
+                x:Name="lblCheckedINTime"
+                FontAttributes="Bold"
+                TextColor="Red"
+                Text="Not Checked IN."
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                LineBreakMode="NoWrap"/>
+
+            </Grid>
+
+            <Label Text="" FontSize="2" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                FontSize="12"
+                FontAttributes="Bold"
+                Text="Check Out Time:"
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Start"
+                LineBreakMode="WordWrap"/>
+
+                <Label Grid.Column="1"
+                FontSize="12" FontAttributes="Bold"
+                x:Name="lblCheckOutTime"
+                TextColor="Red"
+                Text="Not Checked Out."
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                LineBreakMode="NoWrap"/>
+            </Grid>
+
+            <Label Text="" FontSize="5" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Visit Notes." VerticalOptions="CenterAndExpand"
+               FontSize="12" Grid.Column="0"
+                x:Name="lblVisitNotes"/>
+
+                <Entry x:Name="VisitNotes"  
+               FontSize="12" Grid.Column="1"
+               Placeholder="Enter Visit Notes Here"/>
+
+            </Grid>
+
+
+            <Label Text="" FontSize="5" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Check Out" FontAttributes="Bold" FontSize="12"
+                x:Name="btnCheckOut" Grid.Column="2" IsEnabled="False"
+                Clicked="btnCheckOut_Click"/>
+
+                <Image Source="RedXSmall.png" Grid.Column="1" />
+
+                <Label Text="VisitID" VerticalOptions="CenterAndExpand"
+               FontSize="12" Grid.Column="3" 
+                />
+
+                <Label Text="" VerticalOptions="CenterAndExpand"
+               FontSize="15"  Grid.Column="4" x:Name="lblVisitID" x:FieldModifier="Public"
+               />
+
+            </Grid>
+
+            <Label Text="" FontSize="5" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Client Address " VerticalOptions="CenterAndExpand"
+               FontSize="12" Grid.Column="0" 
+                />
+
+                <Label Text="" VerticalOptions="CenterAndExpand"
+                
+               FontSize="12"  Grid.Column="1"
+               x:Name="lblClientAddress"/>
+
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75" />
+                    <ColumnDefinition Width="75" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                FontSize="12"
+                FontAttributes="Bold"
+                Text="Visits Today :"
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Start"
+                LineBreakMode="WordWrap"/>
+
+                <Label Grid.Column="1"
+                FontSize="12" FontAttributes="Bold"
+                x:Name="lblTotalVisits"
+                TextColor="Red"
+                Text="0"
+                HorizontalOptions="StartAndExpand"
+                VerticalTextAlignment="Center"
+                LineBreakMode="NoWrap"/>
+
+                <Label Grid.Column="2"
+                FontSize="12"
+                FontAttributes="Bold"
+                Text="Milage Today :"
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Start"
+                LineBreakMode="WordWrap"/>
+
+                <Label Grid.Column="3"
+                FontSize="12" FontAttributes="Bold"
+                x:Name="lblTotalMilage"
+                TextColor="Red"
+                Text="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                LineBreakMode="NoWrap"/>
+
+            </Grid>
+
+            <Label Text="" FontSize="5" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="68" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
+                x:Name="btnPunchIn"
+                FontSize="12"
+                FontAttributes="Bold"
+                Clicked="btnPunchIn_Clicked"
+                Text="Punch In"
+                HorizontalOptions="FillAndExpand"
+                />
+
+                <Label Grid.Column="1"
+                FontSize="12" FontAttributes="Bold"
+                x:Name="lblPunchIn"
+                TextColor="Black"
+                Text="Not Punched In."
+                HorizontalOptions="CenterAndExpand"
+                VerticalTextAlignment="Center"
+                LineBreakMode="WordWrap"/>
+
+                <Button Grid.Column="2"
+                FontSize="12"
+                FontAttributes="Bold"
+                x:Name="btnPunchOut"
+                Text="Punch Out"
+                IsEnabled="False"
+                Clicked="btnPunchOut_Clicked"
+                HorizontalOptions="FillAndExpand"
+                />
+
+                <Label Grid.Column="3"
+                FontSize="12" FontAttributes="Bold"
+                x:Name="lblPunchOutTime"
+                TextColor="Black"
+                Text="Not Puched Out."
+                 HorizontalOptions="Start"
+                VerticalTextAlignment="Center"
+                LineBreakMode="WordWrap"/>
+
+            </Grid>
+
+            <Label Text="" FontSize="5" HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" />
+
+            <Label 
+                x:Name="lblMessage"
+                FontSize="12" FontAttributes="Bold"
+                Text="Message Center"
+                TextColor="Black"
+                HorizontalOptions="StartAndExpand"
+                VerticalTextAlignment="Center"
+                LineBreakMode="WordWrap"/>
+
+            <Grid>
+                <Button Text="Database Check" FontAttributes="Bold" FontSize="12"
+                x:Name="btnDatabaseCheck" IsEnabled="true" HorizontalOptions="Start"
+                Clicked="btnDatabaseCheck_Click" WidthRequest="200"/>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
