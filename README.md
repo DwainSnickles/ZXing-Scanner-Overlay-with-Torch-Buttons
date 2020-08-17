@@ -4,6 +4,6 @@ Add ZXing cutom Overlay with buttons to turn Torch On and Off
 This was tested on Android Phone Version 9.1
 Couldn't test on Iphone if you could test it on Mac or Iphone please advise.
 This is my first real post with code.
-Unfortunately after downloading you must remove the dashes aka rename the folder after extracting removing the dashes(-) otherwise you get illegal charecters 
+Unfortunately after downloading you must remove the dashes aka rename the folder after extracting removing the dashes(-) otherwise you get illegal characters 
 
 
